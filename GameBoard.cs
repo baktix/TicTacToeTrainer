@@ -3,26 +3,22 @@ using System.Globalization;
 
 namespace TicTacToeTrainer;
 
-public class GameBoard
+public class GameBoard(int rows = 3, int columns = 3)
 {
-    public const int Rows = 3, Columns = 3;
-
-    public enum State : int
-    {
-        Empty = 0,
-        Nought,
-        Cross
-    }
+    public int Rows { get; private init; } = rows;
+    public int Columns { get; private init; } = columns;
 
     public State this[int row, int column]
     {
         get
         {
             if (row < 0 || row > Rows - 1)
-                throw new IndexOutOfRangeException($"{nameof(row)}: value: {row}, range: [0-{Rows - 1}]");
+                throw new IndexOutOfRangeException(
+                    $"{nameof(row)}: value: {row}, range: [0-{Rows - 1}]");
 
             if (column < 0 || column > Columns - 1)
-                throw new IndexOutOfRangeException($"{nameof(column)}: value: {column}, range: [0-{Columns - 1}]");
+                throw new IndexOutOfRangeException(
+                    $"{nameof(column)}: value: {column}, range: [0-{Columns - 1}]");
 
             return states[row, column];
         }
@@ -99,5 +95,5 @@ public class GameBoard
         Cross = "❌",
         Empty = "  ";
 
-    private State[,] states = new State[Rows, Columns];
+    private State[,] states = new State[rows, columns];
 }
