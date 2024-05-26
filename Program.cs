@@ -1,4 +1,4 @@
-﻿namespace MLExperiments;
+﻿namespace TicTacToeTrainer;
 
 internal class Program
 {

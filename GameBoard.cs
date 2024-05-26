@@ -1,7 +1,7 @@
 using System.Text;
 using System.Globalization;
 
-namespace MLExperiments;
+namespace TicTacToeTrainer;
 
 public class GameBoard
 {
